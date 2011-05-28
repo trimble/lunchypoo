@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(:version => 20110528164458) do
   create_table "places", :force => true do |t|
     t.string   "name"
     t.string   "address"
+    t.string   "url"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -3,6 +3,7 @@ class CreatePlaces < ActiveRecord::Migration
     create_table :places do |t|
       t.string :name
       t.string :address
+      t.string :url
       t.boolean :active
 
       t.timestamps

@@ -1,11 +1,26 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  address: 
-  active: false
+  name: Chipotle
+  address: 2420 East 146th Street
+  url: chipotle.com
+  active: true
 
 two:
-  name: MyString
-  address: 
-  active: false
+  name: Detour (an American Grille)
+  address: 110 West Main Street
+  url: detourgrille.com
+  active: true
+
+three:
+  name: Bub's Burgers and Ice Cream
+  address: 210 West Main Street
+  url: www.bubsburgersandicecream.com
+  active: true
+
+four:
+  name: Bub's Cafe
+  address: 220 2nd Street SW
+  url: www.bubsburgersandicecream.com/cafe/about.php
+  active: true
+

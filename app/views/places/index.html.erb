@@ -4,6 +4,8 @@
   <tr>
     <th>Name</th>
     <th>Address</th>
+    <th>Lat</th>
+    <th>Long</th>
     <th>URL</th>
     <th>Active</th>
     <th></th>
@@ -15,6 +17,8 @@
   <tr>
     <td><%= place.name %></td>
     <td><%= place.address %></td>
+    <td><%= place.latitude %></td>
+    <td><%= place.longitude %></td>
     <td><%= link_to place.url %></td>
     <td><%= place.active %></td>
     <td><%= link_to 'Show', place %></td>
@@ -26,4 +30,19 @@
 
 <br />
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Address</th>
+  </tr>
+
+<% Place.near('Fairland, IN, US', 2000).each do |place| %>
+  <tr>
+    <td><%= place.name %></td>
+    <td><%= place.address %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
 <%= link_to 'New Place', new_place_path %>

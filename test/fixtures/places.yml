@@ -1,26 +1,41 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
+chipotle:
   name: Chipotle
   address: 2420 East 146th Street, Carmel, IN
+  latitude: 40.000829
+  longitude: -86.118956
   url: chipotle.com
   active: true
 
-two:
+detour:
   name: Detour (an American Grille)
   address: 110 West Main Street, Carmel, IN
+  latitude: 39.976614
+  longitude: -86.1287849
   url: detourgrille.com
   active: true
 
-three:
+bub's:
   name: Bub's Burgers and Ice Cream
   address: 210 West Main Street, Carmel, IN
+  latitude: 39.978805
+  longitude: -86.1300119
   url: www.bubsburgersandicecream.com
   active: true
 
-four:
+cafe:
   name: Bub's Cafe
   address: 220 2nd Street SW, Carmel, IN
+  latitude: 39.976614
+  longitude: -86.130124
   url: www.bubsburgersandicecream.com/cafe/about.php
+  active: true
+
+cowpalace:
+  name: Cow Palace
+  address: 318 N Harrison St, Shelbyville, IN
+  latitude: 39.527357
+  longitude: -85.776602
   active: true
 

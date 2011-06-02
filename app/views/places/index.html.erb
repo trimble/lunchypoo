@@ -30,16 +30,20 @@
 
 <br />
 
+<h1>Listing places witihin 20 miles of Fairland</h1>
+
 <table>
   <tr>
     <th>Name</th>
     <th>Address</th>
+    <th>Distance</th>
   </tr>
 
-<% Place.near('Fairland, IN, US', 2000).each do |place| %>
+<% Place.near('Fairland, IN, US', 20).each do |place| %>
   <tr>
     <td><%= place.name %></td>
     <td><%= place.address %></td>
+    <td><%= place.distance_from("Fairland, IN, US") %></td>
   </tr>
 <% end %>
 </table>

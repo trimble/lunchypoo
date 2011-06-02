@@ -49,4 +49,9 @@
 </table>
 
 <br />
+
+<h1>Random Place</h1>
+<%= Place.first(:order=> "RANDOM()").name %>
+
+<br />
 <%= link_to 'New Place', new_place_path %>

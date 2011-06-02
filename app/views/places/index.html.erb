@@ -30,7 +30,7 @@
 
 <br />
 
-<h1>Listing places witihin 20 miles of Fairland</h1>
+<h1>Listing of places witihin 20 miles of Fairland</h1>
 
 <table>
   <tr>
@@ -51,7 +51,10 @@
 <br />
 
 <h1>Random Place</h1>
+
 <%= Place.first(:order=> "RANDOM()").name %>
 
 <br />
+<br />
+
 <%= link_to 'New Place', new_place_path %>

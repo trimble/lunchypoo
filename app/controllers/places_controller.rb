@@ -21,6 +21,15 @@ class PlacesController < ApplicationController
     end
   end
 
+  def random
+    @place = Place.first(:order => 'RANDOM()')
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @place }
+    end
+  end
+  
   # GET /places/new
   # GET /places/new.xml
   def new

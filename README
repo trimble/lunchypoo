@@ -21,7 +21,7 @@ I encourage you to jump in and help build this app so that you no longer have to
 As of this writing, the basics are there. Geocoding of newly entered places works. Random selection of places works. Filtering of places based on distance from a given locaiton works.
 
 What doesn't work to my satisfaction yet is:
-- Displaying a randomly selected place by navigating to /random
+- Routing so that the default http://lunchypoo.com returns the random pick
 - Allowing the user to specify a current location and radius for search
 - Look & Feel
 

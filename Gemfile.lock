@@ -33,6 +33,7 @@ GEM
     crack (0.1.8)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    geocoder (1.0.1)
     google_places (0.0.2)
       httparty
     httparty (0.7.8)
@@ -74,6 +75,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  geocoder
   google_places
   rails (= 3.0.5)
   sqlite3

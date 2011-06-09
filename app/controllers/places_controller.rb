@@ -3,7 +3,7 @@ class PlacesController < ApplicationController
   # GET /places.xml
   def index
     @client = GooglePlaces::Client.new('AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU')
-    @places = GooglePlaces::Spot.list(39.5858806, -85.8635919, 'AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU', :types => ['restaurant', 'food'])
+    @places = GooglePlaces::Spot.list(39.58, -85.86, 'AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU', :types => ['restaurant', 'food'])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,16 +50,13 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.xml
   def create
-    @place = Place.new(params[:place])
+    @myLoc = Geocoder.coordinates(params[:location])
+    
+    @places = GooglePlaces::Spot.list(@myLoc[0], @myLoc[1], 'AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU', :types => ['restaurant', 'food'])
 
     respond_to do |format|
-      if @place.save
-        format.html { redirect_to(@place, :notice => 'Place was successfully created.') }
-        format.xml  { render :xml => @place, :status => :created, :location => @place }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
-      end
+      format.html # index.html.erb
+      format.xml  { render :xml => @places }
     end
   end
 

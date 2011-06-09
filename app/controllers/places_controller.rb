@@ -2,7 +2,8 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.xml
   def index
-    @places = Place.all
+    @client = GooglePlaces::Client.new('AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU')
+    @places = GooglePlaces::Spot.list(39.5858806, -85.8635919, 'AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU', :types => ['restaurant', 'food'])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -14,7 +15,7 @@ class PlacesController < ApplicationController
   # GET /places/1.xml
   def show
     @place = Place.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @place }
@@ -23,7 +24,7 @@ class PlacesController < ApplicationController
 
   def random
     @place = Place.first(:order => 'RANDOM()')
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @place }

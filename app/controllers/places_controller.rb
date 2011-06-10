@@ -2,8 +2,14 @@ class PlacesController < ApplicationController
   # GET /places
   # GET /places.xml
   def index
+    if params[:q].nil?
+      @location = Geocoder.coordinates(request.remote_ip)
+    else
+      @location = Geocoder.coordinates(params[:q])
+    end  
+    
     @client = GooglePlaces::Client.new('AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU')
-    @places = GooglePlaces::Spot.list(39.58, -85.86, 'AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU', :types => ['restaurant', 'food'])
+    @places = @client.spots(@location[0], @location[1], :types => ['restaurant', 'food'])
 
     respond_to do |format|
       format.html # index.html.erb
@@ -50,13 +56,16 @@ class PlacesController < ApplicationController
   # POST /places
   # POST /places.xml
   def create
-    @myLoc = Geocoder.coordinates(params[:location])
-    
-    @places = GooglePlaces::Spot.list(@myLoc[0], @myLoc[1], 'AIzaSyBvYVOcbw2eZ482m0sk5o7N-5NScHjnOMU', :types => ['restaurant', 'food'])
+    @place = Place.new(params[:place])
 
     respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @places }
+      if @place.save
+        format.html { redirect_to(@place, :notice => 'Place was successfully created.') }
+        format.xml  { render :xml => @place, :status => :created, :location => @place }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @place.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
